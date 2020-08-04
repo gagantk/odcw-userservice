@@ -43,7 +43,8 @@ const userSchema = new mongoose.Schema({
     validate(value) {
       if (
         value.toLowerCase() !== 'customer' &&
-        value.toLowerCase() !== 'washer'
+        value.toLowerCase() !== 'washer' &&
+        value.toLowerCase() !== 'admin'
       ) {
         throw new HttpError(
           'User can be either "customer" or "washer" only',
