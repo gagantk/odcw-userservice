@@ -80,7 +80,6 @@ const getUsers = async (req, res, next) => {
     users = await User.where('userType')
       .ne('admin')
       .select('name email age userType');
-    console.log(users);
     res.json({ users });
   } catch (err) {
     console.log(err);
@@ -114,8 +113,6 @@ const updateUser = async (req, res, next) => {
   let user;
   try {
     user = await User.findById(userId);
-    console.log('Here');
-    console.log(user);
   } catch (err) {
     const error = new HttpError(
       'Something went wrong, could not update user.',
